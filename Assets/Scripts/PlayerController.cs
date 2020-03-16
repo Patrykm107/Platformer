@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private LayerMask groundLayers;
 	[SerializeField] private Transform groundCheck;
 
-	const float onGroundRadius = .2f;
+	const float onGroundRadius = .3f;
 	private bool onGround;
 
 	private Rigidbody2D rrigidbody2D;
