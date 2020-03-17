@@ -6,8 +6,8 @@ public class PlayerStats : MonoBehaviour
 {
     public const int MAX_HEALTH = 5;
 
-    [Range(0, MAX_HEALTH)][SerializeField] private int health = 3;
-    [SerializeField] private int money = 0;
+    [Range(0, MAX_HEALTH)][SerializeField] private static int health = 3;
+    [SerializeField] private static int money = 0;
 
     public int playerHealth { get { return health; } }
     public int playerMoney { get { return money; } }
@@ -18,8 +18,6 @@ public class PlayerStats : MonoBehaviour
         health = 3;
         money = 0;
     }
-
-    
 
     public void takeDamage(int amount = 1)
     {
