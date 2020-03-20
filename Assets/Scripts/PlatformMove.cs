@@ -4,31 +4,38 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
+    public Transform[] travelPoints;
+
     [SerializeField] private float speed = 2f;
-    [SerializeField] private Transform startPoint;
-    [SerializeField] private Transform targetPoint;
-    [SerializeField] private float time = 5f;
+    
+    private int nextPointId = 0;
 
-    private bool towardsTarget = true;
-
-    Rigidbody2D body;
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        transform.position = travelPoints[0].position;
     }
 
     private void FixedUpdate()
     {
-        //Not finished, moves in one direction, function not polished either
-        Vector2 partDist = (targetPoint.position - startPoint.position) / (time * 10000 * Time.fixedDeltaTime);
-        body.MovePosition(body.position + partDist);
+        transform.position = Vector2.MoveTowards(transform.position, travelPoints[nextPointId].position, speed * Time.fixedDeltaTime);
+
+        if(Vector2.Distance(transform.position, travelPoints[nextPointId].position) < 0.1f) { 
+            changeDirection(); 
+        }
     }
 
+    private void changeDirection()
+    {
+        nextPointId++;
+        if(nextPointId >= travelPoints.Length) { 
+            nextPointId = 0; 
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.parent = transform;
+            collision.gameObject.transform.parent = this.transform;
         }
     }
 

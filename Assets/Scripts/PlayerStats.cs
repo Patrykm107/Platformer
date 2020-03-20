@@ -8,10 +8,13 @@ public class PlayerStats : MonoBehaviour
 
     [Range(0, MAX_HEALTH)][SerializeField] private static int health = 3;
     [SerializeField] private static int money = 0;
+    [SerializeField] private float timeImmue = 3f;
+    private float singleFlash = 0.1f;
 
     public int playerHealth { get { return health; } }
     public int playerMoney { get { return money; } }
-    
+
+    private bool canTakeDamage = true;
 
     void Awake()
     {
@@ -21,20 +24,42 @@ public class PlayerStats : MonoBehaviour
 
     public void takeDamage(int amount = 1)
     {
-        health -= amount;
-
-        if (health < 0)
+        if (canTakeDamage)
         {
-            health = 0;
-        }
+            health -= amount;
 
-        if (health > MAX_HEALTH) {
-            health = MAX_HEALTH;
+            if (health < 0)
+            {
+                health = 0;
+            }
+
+            if (health > MAX_HEALTH)
+            {
+                health = MAX_HEALTH;
+            }
+
+            StartCoroutine(flash());
         }
     }
 
     public void addMoney(int amount = 1)
     {
         money += amount;
+    }
+
+    IEnumerator flash()
+    {
+        canTakeDamage = false;
+        Renderer renderer = GetComponent<Renderer>();
+
+        for (int i = 0; i < timeImmue / (2 * singleFlash); i++)
+        {
+            renderer.enabled = false;
+            yield return new WaitForSeconds(singleFlash);
+            renderer.enabled = true;
+            yield return new WaitForSeconds(singleFlash);
+        }
+
+        canTakeDamage = true;
     }
 }
