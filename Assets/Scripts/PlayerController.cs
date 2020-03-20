@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField] private float jumpStrength = 300f;
+	[SerializeField] private float jumpStrength = 30f;
 	[Range(0, .3f)] [SerializeField] private float movementSmooth = .05f;
 	[SerializeField] private LayerMask groundLayers;
 	[SerializeField] private Transform groundCheck;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 		if(onGround && jump && !jumpBlocked)
 		{
 			onGround = false;
-			rrigidbody2D.AddForce(new Vector2(0, jumpStrength));
+			rrigidbody2D.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
 			StartCoroutine(BlockJump());
 		}
 

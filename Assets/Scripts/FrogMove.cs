@@ -14,7 +14,7 @@ public class FrogMove : MonoBehaviour
     private Rigidbody2D body;
     private Animator animator;
 
-    private float jumpX = -60f;
+    private float jumpX = 60f;
     private float jumpY = 120f;
 
     private bool canJump = true;
@@ -47,7 +47,7 @@ public class FrogMove : MonoBehaviour
 
     IEnumerator jump()
     {
-        body.AddForce(new Vector2(jumpX, jumpY)*jumpStrength);
+        body.AddForce(new Vector2(jumpX * gameObject.transform.localScale.normalized.x, jumpY)*jumpStrength);
         animator.SetBool("Airborne", true);
 
         jumpBlocked = true;
