@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] private float jumpStrength = 30f;
@@ -19,15 +20,13 @@ public class PlayerController : MonoBehaviour
 	private Vector3 velocity = Vector3.zero;
 	private bool facingRight = true;
 
-	private Transform respawnPoint;
 	private float respawnHeight = -10f;
 
 	public UnityEvent onLandEvent;
 
-	void Awake()
+	void Start()
     {
 		rrigidbody2D = GetComponent<Rigidbody2D>();
-		respawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
 		Respawn();
     }
 
@@ -86,9 +85,9 @@ public class PlayerController : MonoBehaviour
 		transform.localScale = scale;
 	}
 
-	private void Respawn()
+	public void Respawn()
 	{
-		rrigidbody2D.transform.position = respawnPoint.position;
+		transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
 	}
 
 	IEnumerator BlockJump()

@@ -13,7 +13,7 @@ public class moneyManager : MonoBehaviour
     private void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-        maxMoneyAmount = collectiblesGrid.GetComponentsInChildren<Money>().Length;
+        maxMoneyAmount = collectiblesGrid.GetComponentsInChildren<Money>().Length + playerStats.playerMoney;
     }
     void Update()
     {

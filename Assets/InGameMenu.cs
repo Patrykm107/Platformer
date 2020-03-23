@@ -23,6 +23,10 @@ public class InGameMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
+        if (pauseMenuUI.GetComponent<Canvas>().worldCamera == null)
+        {
+            pauseMenuUI.GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
     }
 
     public void ResumeGame()
@@ -35,6 +39,10 @@ public class InGameMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         retryMenuUI.SetActive(true);
+        if (retryMenuUI.GetComponent<Canvas>().worldCamera == null)
+        {
+            retryMenuUI.GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
     }
 
     public void RestartGame()
@@ -47,17 +55,25 @@ public class InGameMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void loadNextLevel()
+    public void LoadNextLevel()
     {
         int id = SceneManager.GetActiveScene().buildIndex + 1;
-        if (id < SceneManager.sceneCount)
+        if (id >= SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(id);
+            GoToMainMenu();
+            return;
         }
-        else
-        {
-            SceneManager.LoadScene(0);
-        }
-        
+
+        SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive);
+        SceneManager.sceneLoaded += SceneLoaded;
+    }
+
+    private void SceneLoaded(Scene newScene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= SceneLoaded;
+
+        SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("Player"), newScene);
+
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
     }
 }

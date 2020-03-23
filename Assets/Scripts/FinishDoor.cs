@@ -10,7 +10,7 @@ public class FinishDoor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameController.loadNextLevel();
+            gameController.LoadNextLevel();
         }
     }
 }
