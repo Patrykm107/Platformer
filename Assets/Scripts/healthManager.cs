@@ -21,7 +21,6 @@ public class healthManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         int health = playerStats.playerHealth;
@@ -43,5 +42,10 @@ public class healthManager : MonoBehaviour
                     icon.SetActive(false);
                 }
             });
+
+        if(health <= 0)
+        {
+            GetComponent<InGameMenu>().LoseGame();
+        }
     }
 }
