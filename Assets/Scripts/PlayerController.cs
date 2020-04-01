@@ -80,9 +80,7 @@ public class PlayerController : MonoBehaviour
 	{
 		facingRight = !facingRight;
 
-		Vector3 scale = transform.localScale;
-		scale.x *= -1;
-		transform.localScale = scale;
+		transform.Rotate(0, 180f, 0);
 	}
 
 	public void Respawn()
