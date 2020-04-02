@@ -15,7 +15,6 @@ public class BodyFlip : MonoBehaviour
 
     void Update()
     {
-
         if (body.position.x > lastX && !facingRight || body.position.x < lastX && facingRight)
         {
             Flip();
@@ -28,8 +27,6 @@ public class BodyFlip : MonoBehaviour
     {
         facingRight = !facingRight;
 
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        body.transform.Rotate(0, 180f, 0);
     }
 }

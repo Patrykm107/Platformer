@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5964440327497909448}
   - component: {fileID: 5964440327497909449}
   - component: {fileID: 5964440327497909460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barnacle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298941027738402280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,15 +40,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1298941027848980466}
   - component: {fileID: 1298941027848980425}
-  - component: {fileID: 1298941027848980430}
+  - component: {fileID: 2863568198954972652}
   - component: {fileID: 1298941027848980431}
-  - component: {fileID: 1298941027848980428}
   - component: {fileID: 1298941027848980429}
   - component: {fileID: 1298941027848980424}
   - component: {fileID: 2664613098622679673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: beeBody
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +115,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &1298941027848980430
+--- !u!50 &2863568198954972652
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -153,19 +152,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1298941027848980428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298941027848980467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 970946c5ca7d1964f951e9ab47e69484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushPower: 20
 --- !u!114 &1298941027848980429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197490eb40ca88440aed360bae5a948d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!1 &1298941027994470051
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298941027994470050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,9 +241,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298941028272942367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bee
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298941029106832133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298941029637079594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
