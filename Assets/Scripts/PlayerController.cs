@@ -46,11 +46,6 @@ public class PlayerController : MonoBehaviour
 					onLandEvent.Invoke();
 			}
 		}
-
-		if (rrigidbody2D.position.y < respawnHeight)
-		{
-			Respawn();
-		}
 	}
 
 	public void Move(float move, bool jump)
