@@ -13,10 +13,5 @@ public class SpawnPlayer : MonoBehaviour
         }
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Respawn();
-
-        foreach (GameObject hud in GameObject.FindGameObjectsWithTag("HUD"))
-        {
-            hud.GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        }
     }
 }

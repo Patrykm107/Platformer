@@ -9,6 +9,7 @@ public class Money : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerStats>().addMoney(1);
+            FindObjectOfType<AudioManager>().Play("Coin");
             Destroy(this.gameObject);
         }
     }

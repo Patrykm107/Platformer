@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 		if(onGround && jump && !jumpBlocked)
 		{
 			onGround = false;
+			FindObjectOfType<AudioManager>().Play("Jump");
 			rrigidbody2D.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
 			StartCoroutine(BlockJump());
 		}

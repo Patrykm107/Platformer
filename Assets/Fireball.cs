@@ -53,6 +53,7 @@ public class Fireball : MonoBehaviour
 
     private void Explode()
     {
+        FindObjectOfType<AudioManager>().Play("Explosion");
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
