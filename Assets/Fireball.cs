@@ -19,9 +19,9 @@ public class Fireball : MonoBehaviour
         body.velocity = new Vector2(transform.right.x * velocity.x, -velocity.y);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 normal = col.contacts[0].normal;
+        Vector2 normal = collision.contacts[0].normal;
         Vector2 bottomSide = new Vector2(0f, 1f);
 
 
@@ -34,6 +34,14 @@ public class Fireball : MonoBehaviour
             Explode();
         }
 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.contacts[0].normal != new Vector2(0f, 1f))
+        {
+            Explode();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

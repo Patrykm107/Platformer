@@ -11,7 +11,6 @@ public class SpawnPlayer : MonoBehaviour
         {
             Instantiate(playerPrefab);
         }
-
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Respawn();
+        GameObject.FindGameObjectWithTag("Player").transform.position = transform.position;
     }
 }

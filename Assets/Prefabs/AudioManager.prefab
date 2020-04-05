@@ -43,14 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c876a8ba1f9781341b3b2ca8d3b2fd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 47f473b593ec26e48b37f338e69c17c2, type: 2}
   sounds:
   - name: MainTheme
     clip: {fileID: 8300000, guid: 4caece6298821a34b89af56da2114bd4, type: 3}
-    volume: 0.5
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
+    mixerGroup: {fileID: 5645270769231053678, guid: 47f473b593ec26e48b37f338e69c17c2,
+      type: 2}
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: be2bb18de6bfbe24d94736a28e643efc, type: 3}
@@ -59,20 +62,26 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0.2
     loop: 0
+    mixerGroup: {fileID: -3969450995457517636, guid: 47f473b593ec26e48b37f338e69c17c2,
+      type: 2}
     source: {fileID: 0}
   - name: Explosion
     clip: {fileID: 8300000, guid: fb420db9891d6cd45a1f93546b680db0, type: 3}
-    volume: 0.2
+    volume: 0.3
     volumeVariance: 0.2
     pitch: 1
     pitchVariance: 0.5
     loop: 0
+    mixerGroup: {fileID: -3969450995457517636, guid: 47f473b593ec26e48b37f338e69c17c2,
+      type: 2}
     source: {fileID: 0}
   - name: Coin
     clip: {fileID: 8300000, guid: d2ba85dde875ae5459c713fa15a04a8c, type: 3}
-    volume: 0.5
+    volume: 0.6
     volumeVariance: 0.2
     pitch: 1
     pitchVariance: 0
     loop: 0
+    mixerGroup: {fileID: -3969450995457517636, guid: 47f473b593ec26e48b37f338e69c17c2,
+      type: 2}
     source: {fileID: 0}

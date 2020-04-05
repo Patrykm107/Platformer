@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class FinishDoor : MonoBehaviour
 {
-    public InGameMenu gameController;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameController.LoadNextLevel();
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<InGameMenu>().LoadNextLevel();
         }
     }
 }
